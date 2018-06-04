@@ -10,13 +10,13 @@ The problem is that you and your friend want to meet, but you don't know where. 
 ![Visualisation](doc/VisualSketch.png)
 Main features:
 * MPV:
-  * Welcome screen with "getting started" button.
-  * Address controller two address textfields and get locations - button.
-  * A map with the top three locations in the middle.
-  * Detail screen with the details about the tapped location: address, opening hours and TripAdvisor Reviews.
+  * Welcome View Controller with "getting started" button.
+  * Address View Controller with two address textfields and get locations - button.
+  * Map View controller with the top three locations in the middle.
+  * Detail View Controller with the details about the tapped location: address, opening hours and TripAdvisor Reviews.
   * "Back"-button on the address screen, map screen and detail screen.
 * Optional Features:
-  * Include more optional addresses to implement. 
+  * Include more optional addresses to implement, so for example: the middle of three addresses. 
   * Include also API from the NS, so the app can give a NS train station in the middle of two addresses. 
 
 ## Prerequisites
@@ -32,4 +32,4 @@ Main features:
 
   "So simple! So Easy! I have been researching places to meet with friends and family nearby. I have always missed the mark with timing for myself or   the other party. This made it very simple to find the middle point and research things to do from there."
  
-* Hardest parts: I think the hardest part is to load the data from the API keys. Besides, the top three loacations in the middle have to connect TripAdvisor's corresponding rating. 
+* Hardest parts: I think the hardest part is to load the data from the API keys. Besides, the top three loacations in the middle have to connect with TripAdvisor's corresponding rating. 
