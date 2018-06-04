@@ -8,7 +8,7 @@ The problem is that you and your friend want to meet, but you don't know where. 
 ## Solution
 * Summarize idea: The solution for this problem is an app that takes two addresses and gives a top three restaurants/cafes in the middle of the addresses.
 * Visual sketch:
-![](doc/VisualSketch.png)
+![TEXt](doc/VisualSketch.png)
 * Main features:
 MPV:
 - Welcome screen with getting started button.
