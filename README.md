@@ -18,16 +18,19 @@ Main features:
   * "Back"-button on the address screen, map screen and detail screen.
 * Optional Features:
   * Include more optional addresses to implement. 
-  * Include also API from the NS, so you can choose a NS stations in the middle of two addresses. 
+  * Include also API from the NS, so the app can give a NS train station in the middle of two addresses. 
 
 ## Prerequisites
 * Data sources:
   * Google Maps API key with https://developers.google.com/maps/documentation/ios-sdk/get-api-key
+  * TripAdvisor API key with https://www.programmableweb.com/api/tripadvisor-content
+  * Optional: NS API key to get a train station in the middle of two locations https://www.ns.nl/ews-aanvraagformulier/?0
 * Review of similar mobile apps: "Meet me in the middle" is an similar mobile app, but it only gives the location of the spot in the middle, not a restaurant or other place to meet. 
+  
   Review: 
   Jul 28, 2015
   AJMcIntyre
 
   "So simple! So Easy! I have been researching places to meet with friends and family nearby. I have always missed the mark with timing for myself or   the other party. This made it very simple to find the middle point and research things to do from there."
  
-* Hardest parts: I think the hardest part is to load the data from the API keys.
+* Hardest parts: I think the hardest part is to load the data from the API keys. Besides, the top three loacations in the middle have to connect to the API from TripAdvisor corresponding rating. 
