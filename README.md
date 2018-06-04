@@ -1,11 +1,8 @@
 # Project Proposal
-Minor Programming
-Project Proposal
-Eleanoor Polder
-10979301
+Minor Programming, Project Proposal, Eleanoor Polder, 10979301
 
 ## Problem Statement
-The problem is that you and your friend want to meet, but you don't know where. You want the spot to be in the middle of both addresses so both parties doesn't have to travel to far. Audience is two people who want to meet each other but they don't know where.
+The problem is that you and your friend want to meet, but you don't know where. You want the spot to be in the middle of both addresses so both parties do not have to travel too far. Audience is two people who want to meet each other but they don't know where.
 
 
 ## Solution
