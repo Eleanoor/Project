@@ -24,12 +24,10 @@ Main features:
 * Data sources:
   * Google Maps API key with https://developers.google.com/maps/documentation/ios-sdk/get-api-key
 * Review of similar mobile apps: "Meet me in the middle" is an similar mobile app, but it only gives the location of the spot in the middle, not a restaurant or other place to meet. 
-Review: 
-Jul 28, 2015
-AJMcIntyre
+  Review: 
+  Jul 28, 2015
+  AJMcIntyre
 
-"So simple!
-
-So Easy! I have been researching places to meet with friends and family nearby. I have always missed the mark with timing for myself or the other party. This made it very simple to find the middle point and research things to do from there."
-
+  "So simple! So Easy! I have been researching places to meet with friends and family nearby. I have always missed the mark with timing for myself or   the other party. This made it very simple to find the middle point and research things to do from there."
+ 
 * Hardest parts: I think the hardest part is to load the data from the API keys.
