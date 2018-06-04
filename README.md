@@ -11,6 +11,7 @@ The problem is that you and your friend want to meet, but you don't know where. 
 ![Alternative Text](doc/VisualSketch.png)
 Main features:
 * MPV:
+ * 
  * Welcome screen with getting started button.
  * Address controller two address textfields and get locations - button.
  * A map with the top three locations in the middle.
