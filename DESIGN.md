@@ -2,7 +2,12 @@
 
 * Advanced sketch
 
-* Utility modules, classes and functions
+Classes:
+* WelcomeViewController.swift
+  * Functions:
+    * gettinStartedButton()
+    * updateUI()
+
 
 * List of API's
 
