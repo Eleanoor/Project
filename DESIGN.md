@@ -41,16 +41,16 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
     * fetchReview()
 * LocationData
   * Structs:
-    * Location:
-      X
-      Y
-      Review
-      Address
-      OpeningHours
+    * Location:  
+      X  
+      Y  
+      Review  
+      Address  
+      OpeningHours  
       
 ## API keys
-Google Maps API Key: AIzaSyCz7gAArMJJYeHATmvT1DUNZ1hR7uixqq0
-TripAdvisor API Key: Requested
+Google Maps API Key: AIzaSyCz7gAArMJJYeHATmvT1DUNZ1hR7uixqq0  
+TripAdvisor API Key: Requested  
 NS API Key: 
 
 
