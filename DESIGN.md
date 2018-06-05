@@ -1,6 +1,7 @@
 # Design Document
+Minor Programming, Design Document, Eleanoor Polder, 10979301
 
-* Advanced sketch
+Advanced sketch
 
 Classes:
 * WelcomeViewController.swift
