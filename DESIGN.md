@@ -3,7 +3,7 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
 
 ## Advanced sketch
 
-## Classes:
+## Classes
 * WelcomeViewController.swift
   * Outlets:
     * welcomeLabel
@@ -47,7 +47,11 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
       Review
       Address
       OpeningHours
-
+      
+## API keys
+Google Maps API Key: AIzaSyCz7gAArMJJYeHATmvT1DUNZ1hR7uixqq0
+TripAdvisor API Key: Requested
+NS API Key: 
 
 
 
