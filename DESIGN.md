@@ -1,9 +1,9 @@
 # Design Document
 Minor Programming, Design Document, Eleanoor Polder, 10979301
 
-Advanced sketch
+## Advanced sketch
 
-Classes:
+## Classes:
 * WelcomeViewController.swift
   * Outlets:
     * welcomeLabel
