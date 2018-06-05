@@ -5,37 +5,47 @@
 Classes:
 * WelcomeViewController.swift
   * Outlets:
-    * 
+    * welcomeLabel
+    * gettingStartedButton
   * Functions:
-    * gettinStartedButton()
+    * gettinStartedButtonTapped()
     * updateUI()
 * AddressViewController.swift
   * Outlets:
-    *  
+    * address1TextField
+    * address2TextField
   * Functions:
-    * gettinStartedButton()
+    * getLocationsButtonTapped()
     * updateUI()
+    * prepare()
 * MapsViewController.swift
   * Outlets:
-    *  
+    * location1
+    * location2
+    * location3
   * Functions:
-    * gettinStartedButton()
+    * locationButtonTapped()
     * updateUI()
+    * prepare()
 * DetailsViewController.swift
   * Outlets:
     *  
   * Functions:
-    * gettinStartedButton()
-    * updateUI()
+    * 
 * LocationController.swift
   * Outlets:
     *  
   * Functions:
-    * gettinStartedButton()
-    * updateUI()
+    * fetchMaps()
+    * fetchReview()
 * LocationData
-  * Outlets:
-    * 
+  * Structs:
+    * Location:
+      X
+      Y
+      Review
+      Address
+      OpeningHours
 
 
 
