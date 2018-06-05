@@ -30,12 +30,12 @@ Classes:
     * prepare()
 * DetailsViewController.swift
   * Outlets:
-    *  
+    * titleLabel
+    * addressLabel
+    * reviewLabel
   * Functions:
     * 
 * LocationController.swift
-  * Outlets:
-    *  
   * Functions:
     * fetchMaps()
     * fetchReview()
