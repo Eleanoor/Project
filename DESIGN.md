@@ -6,40 +6,39 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
 
 ### Classes
 * WelcomeViewController.swift
-  * Outlets:
-    * welcomeLabel
-    * gettingStartedButton
   * Functions:
-    * gettinStartedButtonTapped()
-    * updateUI()
+    * override func viewDidLoad()
+    * override func didReceiveMemoryWarning()
 * AddressViewController.swift
-  * Outlets:
-    * address1TextField
-    * address2TextField
   * Functions:
-    * getLocationsButtonTapped()
-    * updateUI()
-    * prepare()
+    * public func didAutocomplete()
+    * public func didFailAutocompleteWithError()
+    * func getAddress1()
+    * func getAddress2()
+    * override func viewDidLoad()
+    * override func viewDidAppear()
+    * func searchBar()
+    * override func didReceiveMemoryWarning()
 * MapsViewController.swift
-  * Outlets:
-    * location1
-    * location2
-    * location3
   * Functions:
     * locationButtonTapped()
-    * updateUI()
+    * override func viewDidLoad()
     * prepare()
 * DetailsViewController.swift
-  * Outlets:
-    * titleLabel
-    * addressLabel
-    * reviewLabel
   * Functions:
-    * 
+    * showInformation()
+    * override func viewDidLoad()
 * LocationController.swift
   * Functions:
     * fetchMaps()
     * fetchReview()
+    * override func viewDidLoad()
+* SearchResultsController.swift
+  * Functions:
+    * override func tableView()
+    * func reloadDataWithArray
+    * override func didReceiveMemoryWarning()
+    * override func viewDidLoad()
 * LocationData
   * Structs:
     * Location:  
@@ -50,9 +49,10 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
       OpeningHours  
       
 ### API keys
-Google Maps API Key: AIzaSyCz7gAArMJJYeHATmvT1DUNZ1hR7uixqq0  
+Google Maps API Key: AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8
+Google Maps Places API Key: AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM
 TripAdvisor API Key: Requested  
-NS API Key: 
+NS API Key: Requested
 
 
 
