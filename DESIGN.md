@@ -49,9 +49,9 @@ Minor Programming, Design Document, Eleanoor Polder, 10979301
       OpeningHours  
       
 ### API keys
-Google Maps API Key: AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8
-Google Maps Places API Key: AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM
-TripAdvisor API Key: Requested  
+Google Maps API Key: AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8  
+Google Maps Places API Key: AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM  
+TripAdvisor API Key: Requested    
 NS API Key: Requested
 
 
