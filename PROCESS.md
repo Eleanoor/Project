@@ -15,4 +15,7 @@ Op dag 1 heb ik aan het project proposal gewerkt. Mijn focus lag vooral op de vi
 * Zoek Autocomplete geimplementeerd bij het invoeren van adressen. 
 ### Dag 4
 To do:
+* Alle Segues laten werken, zodat binnen de schermen kan worden genavigeerd.
 * Pins zetten voor de twee adressen. 
+* Pin zetten voor het midden. 
+
