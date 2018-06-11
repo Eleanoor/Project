@@ -13,6 +13,12 @@ struct LocationData {
     var y: Double
     var name: String
     var address: String
-    var openingh: String
+    var openinghours: String
     var review: Int
+}
+
+struct Address {
+    var name: String
+    var x: Double
+    var y: Double
 }

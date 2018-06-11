@@ -60,7 +60,7 @@
                                 <rect key="frame" x="140" y="443" width="95" height="30"/>
                                 <state key="normal" title="Get Locations"/>
                                 <connections>
-                                    <segue destination="YFO-mt-dgE" kind="show" id="Qld-PK-G2N"/>
+                                    <segue destination="YFO-mt-dgE" kind="show" identifier="MapsSegue" id="Qld-PK-G2N"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGu-dm-t2y">
@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Address 1"/>
                                 <connections>
-                                    <action selector="getAdress1:" destination="03L-v2-Voh" eventType="touchUpInside" id="oB6-dU-huD"/>
+                                    <segue destination="0Cd-Hd-dKe" kind="show" id="3zK-JE-62l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98D-64-iL0">
@@ -79,8 +79,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Address 2"/>
                                 <connections>
-                                    <action selector="getAddress2:" destination="03L-v2-Voh" eventType="touchUpInside" id="h8t-p0-AM3"/>
-                                    <action selector="getAdress1:" destination="03L-v2-Voh" eventType="touchUpInside" id="PyC-L4-78T"/>
+                                    <segue destination="0Cd-Hd-dKe" kind="show" id="lMx-9H-Kxi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -95,13 +94,43 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="getLocationsButton" destination="aeV-YJ-QER" id="veu-TY-W7o"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mk-AZ-IS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="836" y="131.78410794602701"/>
+        </scene>
+        <!--ADDRESS-->
+        <scene sceneID="5hg-Cp-cCL">
+            <objects>
+                <viewController id="0Cd-Hd-dKe" customClass="SearchBarViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="azD-lb-PT7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4o3-3M-7vk"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ADDRESS" id="qL6-6D-rz4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="uFH-kG-5NZ">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="0Cd-Hd-dKe" id="dnB-5p-ihj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="0CA-nr-WKo" id="Ujj-9Q-NQn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TfI-zW-OkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="0CA-nr-WKo">
+                    <connections>
+                        <outlet property="delegate" destination="0Cd-Hd-dKe" id="Yzd-mF-pXW"/>
+                        <outlet property="searchContentsController" destination="0Cd-Hd-dKe" id="nzl-y0-LtY"/>
+                        <outlet property="searchResultsDataSource" destination="0Cd-Hd-dKe" id="wfr-1c-8aD"/>
+                        <outlet property="searchResultsDelegate" destination="0Cd-Hd-dKe" id="9tY-7n-hSy"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="836" y="912"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i5K-Yg-KaW">
@@ -126,33 +155,16 @@
                     <view key="view" contentMode="scaleToFill" id="pJj-J9-DgC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Td-vW-Z68">
-                                <rect key="frame" x="166" y="286" width="43" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button1" image="icons8-marker-40"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIn-Xg-y9V">
-                                <rect key="frame" x="114" y="232" width="43" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button2" image="icons8-marker-40"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kio-1I-h2Z">
-                                <rect key="frame" x="193" y="214" width="43" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button3" image="icons8-marker-40"/>
-                                <connections>
-                                    <segue destination="3hI-hJ-05A" kind="show" id="oxr-Gl-7Vw"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="17F-BW-J9N"/>
                     </view>
+                    <connections>
+                        <segue destination="3hI-hJ-05A" kind="show" identifier="DetailsSegue" id="S8n-8J-gE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XHa-es-t2j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.8" y="131.78410794602701"/>
+            <point key="canvasLocation" x="1716" y="132"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="H4h-a6-0Ir">
@@ -217,7 +229,7 @@
             <point key="canvasLocation" x="2556" y="132"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icons8-marker-40" width="40" height="40"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lMx-9H-Kxi"/>
+    </inferredMetricsTieBreakers>
 </document>
