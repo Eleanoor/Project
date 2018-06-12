@@ -18,4 +18,19 @@ To do:
 * Alle Segues laten werken, zodat binnen de schermen kan worden genavigeerd.
 * Pins zetten voor de twee adressen. 
 * Pin zetten voor het midden. 
+### Dag 5 
+* ToDo's van gister niet af kunnen maken aangezien er een nieuwe viewcontroller nodig is voor de searchbar.
+* Nieuwe viewController voor de searchbar aanmaken.
+* Problemen met SearchBarViewController aangezien ze searchbar een nieuwe View Controller nodig heeft.
+
+## Week 2
+### Dag 1
+* Problemen met SearchBarViewController oplossen.
+* Zorgen dat de autocorrect voor places het weer doet.
+* Connecties tussen de schermen fixen.
+### Dag 2
+* Unwind Segue maken die de AddressItems opslaat per adressItem.
+* Als adressbuttons zijn ingevoerd de naam veranderen naar de naam van de plek. 
+
+
 
