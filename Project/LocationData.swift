@@ -19,6 +19,6 @@ struct LocationData {
 
 struct Address {
     var name: String
-    var x: Double
-    var y: Double
+    var lon: Double
+    var lat: Double
 }

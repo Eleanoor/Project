@@ -28,17 +28,17 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         marker1.title = "Sydney"
         marker1.map = mapView
         
-        let marker2 = GMSMarker()
-        marker2.position = CLLocationCoordinate2D(latitude: -33.7, longitude: 151.0)
-        marker2.title = "Sydney"
-        marker2.map = mapView
-        
-        // Add marker middle.
-        
-        let marker3 = GMSMarker()
-        marker3.position = CLLocationCoordinate2D(latitude: -31, longitude: 150.0)
-        marker3.title = "Middle"
-        marker3.map = mapView
+//        let marker2 = GMSMarker()
+//        marker2.position = CLLocationCoordinate2D(latitude: -33.7, longitude: 151.0)
+//        marker2.title = "Sydney"
+//        marker2.map = mapView
+//        
+//        // Add marker middle.
+//        
+//        let marker3 = GMSMarker()
+//        marker3.position = CLLocationCoordinate2D(latitude: -31, longitude: 150.0)
+//        marker3.title = "Middle"
+//        marker3.map = mapView
     }
 
   

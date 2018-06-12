@@ -11,7 +11,16 @@ import GoogleMaps
 import GooglePlaces
 
 
-class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutocompleteFetcherDelegate {
+class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutocompleteFetcherDelegate, LocateOnTheMap {
+    
+    func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
+        
+        addressItem = Address(name: title, lon: lon, lat: lat)
+        
+        
+        performSegue(withIdentifier: "UnwindSegue", sender: nil)
+    }
+    
 
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         for prediction in predictions {
@@ -28,17 +37,19 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
 
     
     
-    
+    // MARK: - Variables
     var searchResultController: SearchResultsController!
     var resultsArray = [String]()
     var gmsFetcher: GMSAutocompleteFetcher!
-    var addressItem1 = [Address]()
-    var addressItem2 = [Address]()
+    var addressItem: Address?
+
     
+    
+    // MARK: - Functions
+    
+    /// Function for loading view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     /// Function that displays the resultsoptions.
@@ -46,43 +57,44 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
         super.viewDidAppear(true)
         
         searchResultController = SearchResultsController()
+        searchResultController.delegate = self
         gmsFetcher = GMSAutocompleteFetcher()
         gmsFetcher.delegate = self
     }
 
-   
+   /// Function that shows search bar if search button is tapped.
     @IBAction func searchButtonTapped(_ sender: Any) {
         let searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchBar.delegate = self
-        
         self.present(searchController, animated:true, completion: nil)
     }
-    
-
-
 
     /// Function for when text changes.
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-
         self.resultsArray.removeAll()
         gmsFetcher?.sourceTextHasChanged(searchText)
     }
 
-    /// Function that returns to the address screen if the resultlist is clicked.
-    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-
-        // Save lon and lat of searched location
-//        addressItem1.name =
-//        addressItem1.lon =
-//        addressItem1.lat =
+//    /// Function that returns to the address screen if the resultlist is clicked.
+//    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
 //
-//        addressItem2.name =
-//        addressItem2.lon =
-//        addressItem2.lat =
+//       /// unwind segue
+//       performSegue(withIdentifier: "adressSegue", sender: self)
 //
-   }
+//
+//        // Save lon and lat of searched location
+////        addressItem1.name =
+////        addressItem1.lon =
+////        addressItem1.lat =
+////
+////        addressItem2.name =
+////        addressItem2.lon =
+////        addressItem2.lat =
+////
+//   }
+//
     
+    /// Function that
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
