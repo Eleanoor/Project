@@ -14,12 +14,12 @@ protocol LocateOnTheMap{
 
 class SearchResultsController: UITableViewController {
     
-    var searchResults: [String]!
+    var searchResults: [String] = []
     var delegate: LocateOnTheMap!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.searchResults = Array()
+//        self.searchResults = Array()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
     }
     
@@ -64,6 +64,8 @@ class SearchResultsController: UITableViewController {
                     let lat = (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lat")) as! Double
                     
                     let lon = (((((dic.value(forKey: "results") as! NSArray).object(at: 0) as! NSDictionary).value(forKey: "geometry") as! NSDictionary).value(forKey: "location") as! NSDictionary).value(forKey: "lng")) as! Double
+                    
+
                
                     self.delegate.locateWithLongitude(lon, andLatitude: lat, andTitle: self.searchResults[indexPath.row])
                 }
@@ -80,4 +82,6 @@ class SearchResultsController: UITableViewController {
         self.searchResults = array
         self.tableView.reloadData()
     }
+    
+    
 }

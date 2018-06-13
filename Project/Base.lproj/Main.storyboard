@@ -72,6 +72,7 @@
                                 <rect key="frame" x="153.5" y="318" width="67" height="30"/>
                                 <state key="normal" title="Address 1"/>
                                 <connections>
+                                    <action selector="address1ButtonTapped:" destination="03L-v2-Voh" eventType="touchUpInside" id="FJV-a2-bcr"/>
                                     <segue destination="0Cd-Hd-dKe" kind="show" identifier="Address1Segue" id="3zK-JE-62l"/>
                                 </connections>
                             </button>
@@ -79,6 +80,7 @@
                                 <rect key="frame" x="153" y="366" width="69" height="21"/>
                                 <state key="normal" title="Address 2"/>
                                 <connections>
+                                    <action selector="address2ButtonTapped:" destination="03L-v2-Voh" eventType="touchUpInside" id="8Iw-73-nCC"/>
                                     <segue destination="0Cd-Hd-dKe" kind="show" identifier="Address2Segue" id="lMx-9H-Kxi"/>
                                 </connections>
                             </button>

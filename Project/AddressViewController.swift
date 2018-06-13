@@ -17,6 +17,8 @@ class AddressViewController: UIViewController  {
     var addressItem1: Address?
     var addressItem2: Address?
     
+    var addressTapped: Int 
+    
     // MARK: - Outlets
     @IBOutlet weak var Address1Button: UIButton!
     @IBOutlet weak var Address2Button: UIButton!
@@ -33,25 +35,27 @@ class AddressViewController: UIViewController  {
     }
     
     @IBAction func unwindToAdressViewController(segue: UIStoryboardSegue){
-        
+    }
+    
+    @IBAction func address1ButtonTapped(_ sender: UIButton) {
+        addressTapped = 1
+        performSegue(withIdentifier: "Address1Segue", sender: self)
+    }
+    @IBAction func address2ButtonTapped(_ sender: UIButton) {
+        addressTapped = 2
+        performSegue(withIdentifier: "Address2Segue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "MapsSegue" {
+            let mapsController = segue.destination as! MapsViewController
+            addressItem1 = mapsController.addressItem1
+            addressItem1 = mapsController.addressItem1
+        }
         
+        if segue.identifier == "Address1Segue" || segue.identifier == "Address2Segue" {
+            let addressController = segue.destination as! AddressViewController
+            addressTapped = addressController.addressTapped
+        }
     }
-    
-    
-    
-    
-    
-//    /// Function that connects the question to the result view.
-//    override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
-//        if segue.identifier == "MapsSegue" {
-//            let AddressViewController = segue.destination as! ResultViewController
-//            AddressViewController.addressItem1 = addressItem1
-//            AddressViewController.addressItem2 = addressItem2
-//        }
-//    }
-
-
 }

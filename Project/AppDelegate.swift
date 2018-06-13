@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    // Get API key for places and maps. 
+    // Get API key for maps and places. 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         GMSServices.provideAPIKey("AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8")

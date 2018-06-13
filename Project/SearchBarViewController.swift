@@ -14,18 +14,16 @@ import GooglePlaces
 class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutocompleteFetcherDelegate, LocateOnTheMap {
     
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
-        
+     
         addressItem = Address(name: title, lon: lon, lat: lat)
-        
-        
-        performSegue(withIdentifier: "UnwindSegue", sender: nil)
+        print("about to")
+        self.performSegue(withIdentifier: "UnwindSegue", sender: nil)
     }
     
 
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         for prediction in predictions {
-            print(prediction, "predictin")
-            if let prediction = prediction as GMSAutocompletePrediction?{
+            if let prediction = prediction as GMSAutocompletePrediction? {
                 self.resultsArray.append(prediction.attributedFullText.string)
             }
         }
@@ -42,6 +40,7 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
     var resultsArray = [String]()
     var gmsFetcher: GMSAutocompleteFetcher!
     var addressItem: Address?
+    var addressTapped: Int!
 
     
     
@@ -75,24 +74,21 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
         gmsFetcher?.sourceTextHasChanged(searchText)
     }
 
-//    /// Function that returns to the address screen if the resultlist is clicked.
-//    func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
-//
-//       /// unwind segue
-//       performSegue(withIdentifier: "adressSegue", sender: self)
-//
-//
-//        // Save lon and lat of searched location
-////        addressItem1.name =
-////        addressItem1.lon =
-////        addressItem1.lat =
-////
-////        addressItem2.name =
-////        addressItem2.lon =
-////        addressItem2.lat =
-////
-//   }
-//
+    
+    
+    // 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindSegue" {
+            if addressTapped == 1 {
+                let addressCOntroller = segue.destination as! AddressViewController
+                addressItem = addressCOntroller.addressItem1
+            }
+            else if addressTapped == 2 {
+                let addressCOntroller = segue.destination as! AddressViewController
+                addressItem = addressCOntroller.addressItem2
+            }
+        }
+    }
     
     /// Function that
     override func didReceiveMemoryWarning() {

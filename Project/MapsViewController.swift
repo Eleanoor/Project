@@ -13,6 +13,9 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 
     var mapView: GMSMapView!
     
+    var addressItem1: Address?
+    var addressItem2: Address?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,15 +27,15 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         
         // Add marker address 1 an address 2.
         let marker1 = GMSMarker()
-        marker1.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-        marker1.title = "Sydney"
+        marker1.position = CLLocationCoordinate2D(latitude: addressItem1!.lon, longitude: addressItem1!.lat)
+        marker1.title = addressItem1!.name
         marker1.map = mapView
         
-//        let marker2 = GMSMarker()
-//        marker2.position = CLLocationCoordinate2D(latitude: -33.7, longitude: 151.0)
-//        marker2.title = "Sydney"
-//        marker2.map = mapView
-//        
+        let marker2 = GMSMarker()
+        marker2.position = CLLocationCoordinate2D(latitude: addressItem2!.lon, longitude: addressItem2!.lat)
+        marker2.title = addressItem2!.name
+        marker2.map = mapView
+        
 //        // Add marker middle.
 //        
 //        let marker3 = GMSMarker()
