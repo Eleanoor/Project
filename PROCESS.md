@@ -35,6 +35,10 @@ To do:
 * Heb al een paar dagen hetzelfde probleem, want als een ding wordt gefixt komt er weer een ander probleem om de hoek kijken.
 Dus vandaag moet dat echt opgelost zijn. 
 * Achter de TripAdvisor API aan, want die heb ik nog steeds niet onvangen. 
+* Achtergrond en logo mooi gemaakt, zodat de app er wat leuker uit ziet.
+### Dag 4
+
+### Dag 5
 
 
 
