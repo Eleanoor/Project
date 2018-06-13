@@ -31,6 +31,10 @@ To do:
 ### Dag 2
 * Unwind Segue maken die de AddressItems opslaat per adressItem.
 * Als adressbuttons zijn ingevoerd de naam veranderen naar de naam van de plek. 
+### Dag 3
+* Heb al een paar dagen hetzelfde probleem, want als een ding wordt gefixt komt er weer een ander probleem om de hoek kijken.
+Dus vandaag moet dat echt opgelost zijn. 
+* Achter de TripAdvisor API aan, want die heb ik nog steeds niet onvangen. 
 
 
 
