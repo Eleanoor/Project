@@ -25,30 +25,31 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         mapView.isMyLocationEnabled = true
         self.view = mapView
         
-        // Add marker address 1 an address 2.
+        // Add marker address 1.
         let marker1 = GMSMarker()
         marker1.position = CLLocationCoordinate2D(latitude: addressItem1!.lon, longitude: addressItem1!.lat)
         marker1.title = addressItem1!.name
         marker1.map = mapView
         
+        // Add marker address 2.
         let marker2 = GMSMarker()
         marker2.position = CLLocationCoordinate2D(latitude: addressItem2!.lon, longitude: addressItem2!.lat)
         marker2.title = addressItem2!.name
         marker2.map = mapView
         
-//        // Add marker middle.
-//        
-//        let marker3 = GMSMarker()
-//        marker3.position = CLLocationCoordinate2D(latitude: -31, longitude: 150.0)
-//        marker3.title = "Middle"
-//        marker3.map = mapView
+        let latMiddle = (addressItem1!.lon + addressItem2!.lon)/2
+        let lonMiddle =  (addressItem1!.lat + addressItem2!.lat)/2
+        
+        // Add marker in the middle.
+        let marker3 = GMSMarker()
+        marker3.position = CLLocationCoordinate2D(latitude: latMiddle, longitude: lonMiddle)
+        marker3.title = "Middle"
+        marker3.map = mapView
     }
 
   
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-
         performSegue(withIdentifier: "DetailsSegue", sender: nil)
-        
     }
     
     
@@ -58,14 +59,6 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

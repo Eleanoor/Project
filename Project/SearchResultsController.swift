@@ -19,7 +19,7 @@ class SearchResultsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.searchResults = Array()
+//       self.searchResults = Array()
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
     }
     

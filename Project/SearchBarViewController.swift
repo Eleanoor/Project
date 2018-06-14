@@ -13,6 +13,7 @@ import GooglePlaces
 
 class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutocompleteFetcherDelegate, LocateOnTheMap {
     
+    /// Function that save longitude and latitude of tapped address.
     func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
      
         addressItem = Address(name: title, lon: lon, lat: lat)
@@ -20,7 +21,7 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
         self.performSegue(withIdentifier: "UnwindSegue", sender: nil)
     }
     
-
+    /// Function
     public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         for prediction in predictions {
             if let prediction = prediction as GMSAutocompletePrediction? {
@@ -30,10 +31,9 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
         self.searchResultController.reloadDataWithArray(self.resultsArray)
     }
 
+    /// Function for autocomplete.
     public func didFailAutocompleteWithError(_ error: Error) {
     }
-
-    
     
     // MARK: - Variables
     var searchResultController: SearchResultsController!
@@ -42,8 +42,6 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
     var addressItem: Address?
     var addressTapped: Int!
 
-    
-    
     // MARK: - Functions
     
     /// Function for loading view controller.
@@ -73,19 +71,20 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
         self.resultsArray.removeAll()
         gmsFetcher?.sourceTextHasChanged(searchText)
     }
-
     
-    
-    // 
+    /// Function tha
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "unwindSegue" {
-            if addressTapped == 1 {
-                let addressCOntroller = segue.destination as! AddressViewController
-                addressItem = addressCOntroller.addressItem1
-            }
-            else if addressTapped == 2 {
-                let addressCOntroller = segue.destination as! AddressViewController
-                addressItem = addressCOntroller.addressItem2
+        if segue.identifier == "UnwindSegue" {
+            switch addressTapped {
+                case 1 :
+                    let addressController = segue.destination as! AddressViewController
+                    addressController.addressItem1 = self.addressItem
+                
+                case 2 :
+                    let addressController = segue.destination as! AddressViewController
+                    addressController.addressItem2 = self.addressItem
+                default:
+                    print("Default")
             }
         }
     }
@@ -93,7 +92,6 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutoco
     /// Function that
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
