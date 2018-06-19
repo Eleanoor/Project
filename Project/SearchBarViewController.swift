@@ -11,87 +11,71 @@ import GoogleMaps
 import GooglePlaces
 
 
-class SearchBarViewController: UIViewController, UISearchBarDelegate,  GMSAutocompleteFetcherDelegate, LocateOnTheMap {
-    
-    /// Function that save longitude and latitude of tapped address.
-    func locateWithLongitude(_ lon: Double, andLatitude lat: Double, andTitle title: String) {
-     
-        addressItem = Address(name: title, lon: lon, lat: lat)
-        print("about to")
-        self.performSegue(withIdentifier: "UnwindSegue", sender: nil)
-    }
-    
-    /// Function
-    public func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
-        for prediction in predictions {
-            if let prediction = prediction as GMSAutocompletePrediction? {
-                self.resultsArray.append(prediction.attributedFullText.string)
-            }
-        }
-        self.searchResultController.reloadDataWithArray(self.resultsArray)
-    }
+import UIKit
+import GoogleMaps
+import GooglePlaces
 
-    /// Function for autocomplete.
-    public func didFailAutocompleteWithError(_ error: Error) {
-    }
+class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDelegate {
     
-    // MARK: - Variables
-    var searchResultController: SearchResultsController!
-    var resultsArray = [String]()
-    var gmsFetcher: GMSAutocompleteFetcher!
-    var addressItem: Address?
+  
     var addressTapped: Int!
-
-    // MARK: - Functions
+    var addressItem: GMSPlace?
     
-    /// Function for loading view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
     
-    /// Function that displays the resultsoptions.
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    
+    
+    // MARK: GOOGLE AUTO COMPLETE DELEGATE
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        addressItem = place
         
-        searchResultController = SearchResultsController()
-        searchResultController.delegate = self
-        gmsFetcher = GMSAutocompleteFetcher()
-        gmsFetcher.delegate = self
-    }
-
-   /// Function that shows search bar if search button is tapped.
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        let searchController = UISearchController(searchResultsController: searchResultController)
-        searchController.searchBar.delegate = self
-        self.present(searchController, animated:true, completion: nil)
-    }
-
-    /// Function for when text changes.
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.resultsArray.removeAll()
-        gmsFetcher?.sourceTextHasChanged(searchText)
+        performSegue(withIdentifier: "UnwindSegue", sender: self)
+       // let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
+       // self.googleMapsView.camera = camera
+        //self.dismiss(animated: true, completion: nil) // dismiss after select place
+        
     }
     
-    /// Function tha
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        
+        print("ERROR AUTO COMPLETE \(error)")
+        
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil) // when cancel search
+    }
+    
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        let autoCompleteController = GMSAutocompleteViewController()
+        autoCompleteController.delegate = self
+        
+        //self.locationManager.startUpdatingLocation()
+        self.present(autoCompleteController, animated: true, completion: nil)
+    }
+    
+    /// Function that sends the getten adress item to the addressViewController.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UnwindSegue" {
             switch addressTapped {
-                case 1 :
-                    let addressController = segue.destination as! AddressViewController
-                    addressController.addressItem1 = self.addressItem
-                
-                case 2 :
-                    let addressController = segue.destination as! AddressViewController
-                    addressController.addressItem2 = self.addressItem
-                default:
-                    print("Default")
+            case 1:
+                let addressController = segue.destination as! AddressViewController
+                addressController.addressItem1 = self.addressItem
+            case 2:
+                let addressController = segue.destination as! AddressViewController
+                addressController.addressItem2 = self.addressItem
+            default:
+                print("Default")
             }
         }
     }
     
-    /// Function that
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 
+    
+    
 }
