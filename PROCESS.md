@@ -37,8 +37,27 @@ Dus vandaag moet dat echt opgelost zijn.
 * Achter de TripAdvisor API aan, want die heb ik nog steeds niet onvangen. 
 * Achtergrond en logo mooi gemaakt, zodat de app er wat leuker uit ziet.
 ### Dag 4
+* Nieuwe places autocorrect aangemaakt, die geen error soms geeft. 
+* Geimplementeerd dat als er twee adressen ingevuld worden er drie plekken op de kaart komen te staan.
 
 ### Dag 5
+Ziek
+
+## Week 3
+
+### Dag 1
+Ziek
+
+### Dag 2
+* Verbinding tussen Maps en Detail maken.
+* Nadenken over een oplossing aangezien ik niet de TripAdvisor API heb.
+* Nadenken over wat ik moet doen als ik in het water terecht kom.
+
+
+To Do voor deze week:
+* Inloggen via firebase
+
+
 
 
 
