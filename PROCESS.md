@@ -61,5 +61,12 @@ Ziek
 
 
 
+To do voor inleveren:
+* bounds van mapview op de buitenste twee adressen zetten
+* layout
+* addressTapped enumerator maken
+
+
+
 
 
