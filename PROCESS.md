@@ -52,10 +52,12 @@ Ziek
 * Verbinding tussen Maps en Detail maken.
 * Nadenken over een oplossing aangezien ik niet de TripAdvisor API heb.
 * Nadenken over wat ik moet doen als ik in het water terecht kom.
+* Inloggen via firebase. 
+* Button Text verandert als er een adres is ingevuld.
 
-
-To Do voor deze week:
-* Inloggen via firebase
+### Dag 3
+* Inloggen met Firebase afmaken. Het werkt nu nog maar half: Je kan altijd inloggen en je kan altijd een account creeeren, ook als je nog geen account hebt of als je niks invult bij de username of password.
+* Via Google Places moet ik restaurants/cafes aan het midden koppelen. Dit gaat me nog wel veel tijd kosten aangezien ik helemaal niet weet hoe ik dat moet implementeren.
 
 
 
