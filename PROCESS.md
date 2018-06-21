@@ -59,12 +59,17 @@ Ziek
 * Inloggen met Firebase afmaken. Het werkt nu nog maar half: Je kan altijd inloggen en je kan altijd een account creeeren, ook als je nog geen account hebt of als je niks invult bij de username of password.
 * Via Google Places moet ik restaurants/cafes aan het midden koppelen. Dit gaat me nog wel veel tijd kosten aangezien ik helemaal niet weet hoe ik dat moet implementeren.
 
+### Dag 4
+* Ingewikkelde Json van google places decoden. 
+* Markers voor de drie dichtsbijzijnde locaties. 
 
 
-To do voor inleveren:
+To do voor deze week:
 * bounds van mapview op de buitenste twee adressen zetten
 * layout
 * addressTapped enumerator maken
+* Firebase beter maken 
+* Data doorgeven aan detailViewController.
 
 
 
