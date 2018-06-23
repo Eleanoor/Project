@@ -52,7 +52,6 @@ class AddressViewController: UIViewController  {
         default:
             print("default")
         }
-        
     }
     
     /// Function for when address 1 button is tapped.
@@ -68,6 +67,17 @@ class AddressViewController: UIViewController  {
 //        addressTapped = numberTapped.two //ENUM
         performSegue(withIdentifier: "AddressSegue", sender: self)
     }
+    
+    /// Function if get locations is tapped.
+    @IBAction func getLocationsButtonTapped(_ sender: Any) {
+        if address1Button.titleLabel!.text == "Address 1" || address2Button.titleLabel!.text == "Address 2" {
+            print("addresses needed")
+            // UI Alert
+        }
+        
+        performSegue(withIdentifier: "MapsSegue", sender: self)
+    }
+    
     
     /// Function that will send values to the MapsViewController and the SearchBarViewController. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
