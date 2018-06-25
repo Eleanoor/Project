@@ -52,10 +52,29 @@ Ziek
 * Verbinding tussen Maps en Detail maken.
 * Nadenken over een oplossing aangezien ik niet de TripAdvisor API heb.
 * Nadenken over wat ik moet doen als ik in het water terecht kom.
+* Inloggen via firebase. 
+* Button Text verandert als er een adres is ingevuld.
+
+### Dag 3
+* Inloggen met Firebase afmaken. Het werkt nu nog maar half: Je kan altijd inloggen en je kan altijd een account creeeren, ook als je nog geen account hebt of als je niks invult bij de username of password.
+* Via Google Places moet ik restaurants/cafes aan het midden koppelen. Dit gaat me nog wel veel tijd kosten aangezien ik helemaal niet weet hoe ik dat moet implementeren.
+
+### Dag 4
+* Ingewikkelde Json van google places decoden.
+* Markers voor de drie dichtsbijzijnde locaties. 
+
+### Dag 5
+* Informatie van de Json naar de detailsscreen. 
+* Firebase inloggen niet gelukt wegens error dat API keys out of date zijn, dus dit moet ik maandag even oplossen met assistentie. 
 
 
-To Do voor deze week:
-* Inloggen via firebase
+## Week 4
+### Dag 1
+Prioriteit:
+* Error in Firebase inloggen oplossen. 
+
+
+
 
 
 
