@@ -10,6 +10,7 @@
 		51E2A89662702C272CB30959 /* Pods_ProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C4671568128F27310B0FF8 /* Pods_ProjectTests.framework */; };
 		6A79902AA369F334D7DB3DBE /* Pods_ProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80F1812C37E5E928D63D6B2 /* Pods_ProjectUITests.framework */; };
 		759DDAA0DD0DFBE8102D737C /* Pods_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B45C391F607A2265F48638BA /* Pods_Project.framework */; };
+		B28374F720E1163C0073623D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B28374F620E1163C0073623D /* GoogleService-Info.plist */; };
 		B286B7BE20C951B6009A3BAC /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B286B7BD20C951B6009A3BAC /* SearchBarViewController.swift */; };
 		B294B5E520C5438F00BEF49F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294B5E420C5438F00BEF49F /* AppDelegate.swift */; };
 		B294B5EA20C5438F00BEF49F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B294B5E820C5438F00BEF49F /* Main.storyboard */; };
@@ -23,7 +24,6 @@
 		B294B61920C6A8B200BEF49F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294B61820C6A8B200BEF49F /* DetailsViewController.swift */; };
 		B294B61B20C6BB5600BEF49F /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294B61A20C6BB5600BEF49F /* LocationController.swift */; };
 		B294B61D20C6BB7000BEF49F /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B294B61C20C6BB7000BEF49F /* LocationData.swift */; };
-		B2BBF74F20D8F48200E5CFE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2BBF74E20D8F48200E5CFE5 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,7 @@
 		47C4671568128F27310B0FF8 /* Pods_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		591F479E5D8BF4BBB9975CE1 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F6BB7D72943E30E1F96A930 /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
+		B28374F620E1163C0073623D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B286B7BD20C951B6009A3BAC /* SearchBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		B294B5E120C5438F00BEF49F /* Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B294B5E420C5438F00BEF49F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		B294B61820C6A8B200BEF49F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		B294B61A20C6BB5600BEF49F /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		B294B61C20C6BB7000BEF49F /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
-		B2BBF74E20D8F48200E5CFE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B45C391F607A2265F48638BA /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77C8BDD429C6DE1A4F57BCA /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		CE0D6A11F4AF4FB02DBE4AA0 /* Pods-ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectUITests/Pods-ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 				B294B61620C6A89100BEF49F /* MapsViewController.swift */,
 				B294B61820C6A8B200BEF49F /* DetailsViewController.swift */,
 				B294B5EB20C5439100BEF49F /* Assets.xcassets */,
-				B2BBF74E20D8F48200E5CFE5 /* GoogleService-Info.plist */,
 				B294B5ED20C5439100BEF49F /* LaunchScreen.storyboard */,
+				B28374F620E1163C0073623D /* GoogleService-Info.plist */,
 				B294B5F020C5439100BEF49F /* Info.plist */,
 			);
 			path = Project;
@@ -298,7 +298,7 @@
 				B294B5EF20C5439100BEF49F /* LaunchScreen.storyboard in Resources */,
 				B294B5EC20C5439100BEF49F /* Assets.xcassets in Resources */,
 				B294B5EA20C5438F00BEF49F /* Main.storyboard in Resources */,
-				B2BBF74F20D8F48200E5CFE5 /* GoogleService-Info.plist in Resources */,
+				B28374F720E1163C0073623D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

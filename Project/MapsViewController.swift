@@ -38,7 +38,7 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         lonMiddle =  (addressItem1!.coordinate.longitude + addressItem2!.coordinate.longitude)/2
 
         // Setup map view.
-        let camera = GMSCameraPosition.camera(withLatitude: latMiddle, longitude: lonMiddle, zoom: 12)
+        let camera = GMSCameraPosition.camera(withLatitude: latMiddle, longitude: lonMiddle, zoom: 15)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
@@ -64,20 +64,29 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         // Add 3 markers for the restaurants/bars.
         LocationController.shared.fetchRestaurants(lat:latMiddle, lng:lonMiddle) { (location) in
             guard let location = location else {return}
-            DispatchQueue.main.async{
-                // Marker 4
-                self.marker4.position = CLLocationCoordinate2D(latitude: location[0].lat!, longitude: location[0].lng!)
-                self.marker4.title = location[0].name
-                self.marker4.map = mapView
-                // Marker 5
-                self.marker5.position = CLLocationCoordinate2D(latitude: location[1].lat!, longitude: location[1].lng!)
-                self.marker5.title = location[1].name
-                self.marker5.map = mapView
-                // Marker 6
-                self.marker6.position = CLLocationCoordinate2D(latitude: location[2].lat!, longitude: location[2].lng!)
-                self.marker6.title = location[2].name
-                self.marker6.map = mapView
-                
+            if location.count != 0 {
+                DispatchQueue.main.async{
+                    // Marker 4
+                    self.marker4.position = CLLocationCoordinate2D(latitude: location[0].lat!, longitude: location[0].lng!)
+                    self.marker4.title = location[0].name
+                    self.marker4.map = mapView
+                    // Marker 5
+                    self.marker5.position = CLLocationCoordinate2D(latitude: location[1].lat!, longitude: location[1].lng!)
+                    self.marker5.title = location[1].name
+                    self.marker5.map = mapView
+                    // Marker 6
+                    self.marker6.position = CLLocationCoordinate2D(latitude: location[2].lat!, longitude: location[2].lng!)
+                    self.marker6.title = location[2].name
+                    self.marker6.map = mapView
+                    
+                }
+            }
+            else {
+                // UI ALert
+                let alertController = UIAlertController(title: "You are to far away from anything in the normal world", message: "You cannot see your friend", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }

@@ -72,21 +72,20 @@ class AddressViewController: UIViewController  {
     
     /// Function if get locations is tapped.
     @IBAction func getLocationsButtonTapped(_ sender: Any) {
-        // UI Alert for if mia
+        
+        // UI Alert if address 1 or 2 is not chosen yet.
         if address1Button.titleLabel!.text == "Address 1" || address2Button.titleLabel!.text == "Address 2" {
             let alertController = UIAlertController(title: "Something went wrong", message: "Fill in both address fields", preferredStyle: .alert)
-            
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                                 alertController.addAction(defaultAction)
-            
             self.present(alertController, animated: true, completion: nil)
-            print("addresses needed")
-        
         }
         
+        // Go to Maps if both addresses are filled in.
         performSegue(withIdentifier: "MapsSegue", sender: self)
     }
     
+    /// Function if log out button is tapped. 
     @IBAction func LogOutButtonTapped(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
@@ -95,7 +94,6 @@ class AddressViewController: UIViewController  {
             print("error")
         }
     }
-    
     
     /// Function that will send values to the MapsViewController and the SearchBarViewController. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
