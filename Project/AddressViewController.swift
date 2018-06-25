@@ -9,6 +9,8 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import Firebase
+import FirebaseAuth
 
 
 class AddressViewController: UIViewController  {
@@ -70,12 +72,28 @@ class AddressViewController: UIViewController  {
     
     /// Function if get locations is tapped.
     @IBAction func getLocationsButtonTapped(_ sender: Any) {
+        // UI Alert for if mia
         if address1Button.titleLabel!.text == "Address 1" || address2Button.titleLabel!.text == "Address 2" {
+            let alertController = UIAlertController(title: "Something went wrong", message: "Fill in both address fields", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
             print("addresses needed")
-            // UI Alert
+        
         }
         
         performSegue(withIdentifier: "MapsSegue", sender: self)
+    }
+    
+    @IBAction func LogOutButtonTapped(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "LogOutSegue", sender: self)
+        } catch {
+            print("error")
+        }
     }
     
     

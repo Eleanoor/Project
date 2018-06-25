@@ -102,6 +102,9 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         
     }
     
+    
+    
+    
     /// Function that sends values to detailsviewcontroller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsSegue" {

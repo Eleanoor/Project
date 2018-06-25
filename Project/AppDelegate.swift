@@ -16,8 +16,6 @@ let googleApiKey = "AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
 
     var window: UIWindow?
 
@@ -25,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8
-        
-        GMSServices.provideAPIKey("AIzaSyBddhYPJ1tj7cHyx3x0LR-FUyHPBN3nVNQ")
+        //AIzaSyBddhYPJ1tj7cHyx3x0LR-FUyHPBN3nVNQ
+        GMSServices.provideAPIKey("AIzaSyBwzCKh-gW1dZZ6k317ysgxkDHpgGmwpr8")
         
         
         //AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM
-        GMSPlacesClient.provideAPIKey("AIzaSyAfbusZOf0qLnSdPBlMQXVwG4PStC29JrQ")
+        // AIzaSyAfbusZOf0qLnSdPBlMQXVwG4PStC29JrQ
+        GMSPlacesClient.provideAPIKey("AIzaSyBk6SB23PYD0pNVA-05LCbHLBk9YwGpjiM")
         
         FirebaseApp.configure()
         

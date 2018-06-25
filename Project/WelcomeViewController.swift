@@ -20,16 +20,29 @@ class WelcomeViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { user, error in
                 if let firebaseError = error {
+                    let alertController = UIAlertController(title: "Something went wrong", message: "Incorrect email or password.", preferredStyle: .alert)
 
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
 
+                    self.present(alertController, animated: true, completion: nil)
+                    print(firebaseError.localizedDescription)
                     print(error)
                     return
                 }
                 print("succes")
+                self.performSegue(withIdentifier: "LoginSegue", sender: self)
 
             }
-            performSegue(withIdentifier: "LoginSegue", sender: self)
         }
+        
+        let alertController = UIAlertController(title: "Something went wrong", message: "Fill in password and email", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
     }
 
 //        if emailTextField.text! == "" || passwordTextField.text == "" {
@@ -85,23 +98,31 @@ class WelcomeViewController: UIViewController {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { user, error in
                 if let firebaseError = error {
-                    print(firebaseError.localizedDescription)
-//                    let alertController = UIAlertController(title: "Something went wrong", message: "Incorrect email or password", preferredStyle: .alert)
-//
-//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//                    alertController.addAction(defaultAction)
-//
-//                    self.present(alertController, animated: true, completion: nil)
+                    
+                    let alertController = UIAlertController(title: "Something went wrong", message: "Incorrect email or password", preferredStyle: .alert)
+
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+
+                    self.present(alertController, animated: true, completion: nil)
                     return
+                    print(firebaseError.localizedDescription)
                     print(error)
                     
                     
                 }
                 print("succes")
+                self.performSegue(withIdentifier: "LoginSegue", sender: self)
             }
             
         }
-        performSegue(withIdentifier: "LoginSegue", sender: self)
+        let alertController = UIAlertController(title: "Something went wrong", message: "Fill in email and password.", preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        return
     }
     
     
