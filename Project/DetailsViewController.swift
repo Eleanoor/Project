@@ -17,13 +17,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var openingHoursLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     
+    // MARK: - Variables
     var latMiddle: Double?
     var lonMiddle: Double?
     var markerChosen: Int?
     
     // MARK: - Functions
     
-    
+    /// Function
     override func viewDidLoad() {
         super.viewDidLoad()
         

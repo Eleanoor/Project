@@ -30,6 +30,7 @@ class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDe
     
     // MARK: GOOGLE AUTO COMPLETE DELEGATE
     
+    ///
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         addressItem = place
         
@@ -40,17 +41,19 @@ class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDe
         
     }
     
+    /// Funtion is autocomplete doesn't work.
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         
         print("ERROR AUTO COMPLETE \(error)")
         
     }
     
+    /// Function if cancel button is tapped.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         self.dismiss(animated: true, completion: nil) // when cancel search
     }
     
-    
+    /// Function for if search button is tapped.
     @IBAction func searchButtonTapped(_ sender: Any) {
         let autoCompleteController = GMSAutocompleteViewController()
         autoCompleteController.delegate = self

@@ -22,7 +22,6 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
     let marker4 = GMSMarker()
     let marker5 = GMSMarker()
     let marker6 = GMSMarker()
-    
     var markerChosen = 0
     
     // Initialize lon and lat for the middle.
@@ -37,10 +36,9 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         
         latMiddle = (addressItem1!.coordinate.latitude + addressItem2!.coordinate.latitude)/2
         lonMiddle =  (addressItem1!.coordinate.longitude + addressItem2!.coordinate.longitude)/2
-       
-        
+
         // Setup map view.
-        let camera = GMSCameraPosition.camera(withLatitude: latMiddle, longitude: lonMiddle, zoom: 6)
+        let camera = GMSCameraPosition.camera(withLatitude: latMiddle, longitude: lonMiddle, zoom: 12)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         mapView.delegate = self
         mapView.isMyLocationEnabled = true
@@ -99,11 +97,7 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
             markerChosen = 6
             performSegue(withIdentifier: "DetailsSegue", sender: self)
         }
-        
     }
-    
-    
-    
     
     /// Function that sends values to detailsviewcontroller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
