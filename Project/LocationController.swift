@@ -12,8 +12,10 @@ class LocationController {
     
     static let shared = LocationController()
     
+    /// Function that returns data depending if the middle is in water or not, otherwise nil.
     func fetchRestaurants(lat: Double, lng: Double, completion: @escaping ([LocationData]?) -> Void) {
         fetchRestaurantsHelper(lat: lat, lng: lng, inwater: false) { (data) in
+            
             if let data = data {
                 if data.count != 0 {
                     completion(data)
@@ -34,7 +36,7 @@ class LocationController {
         }
     }
     
-    /// Function that gets JSon.
+    /// Function that converts JSON into struct.
     private func fetchRestaurantsHelper(lat: Double, lng: Double, inwater: Bool, completion: @escaping ([LocationData]?) -> Void) {
         
         var url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&rankby=distance&type=restaurant&type=bar&key=AIzaSyAfbusZOf0qLnSdPBlMQXVwG4PStC29JrQ")!

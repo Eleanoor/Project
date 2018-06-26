@@ -66,23 +66,30 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
             guard let location = location else {return}
             if location.count != 0 {
                 DispatchQueue.main.async{
-                    // Marker 4
+                    print("In de if loop")
+                    // Add marker 4.
                     self.marker4.position = CLLocationCoordinate2D(latitude: location[0].lat!, longitude: location[0].lng!)
                     self.marker4.title = location[0].name
                     self.marker4.map = mapView
-                    // Marker 5
+                    self.marker4.icon = GMSMarker.markerImage(with: .purple)
+                    
+                    // Add marker 5.
                     self.marker5.position = CLLocationCoordinate2D(latitude: location[1].lat!, longitude: location[1].lng!)
                     self.marker5.title = location[1].name
                     self.marker5.map = mapView
-                    // Marker 6
+                    self.marker5.icon = GMSMarker.markerImage(with: .purple)
+                    
+                    // Add marker 6.
                     self.marker6.position = CLLocationCoordinate2D(latitude: location[2].lat!, longitude: location[2].lng!)
                     self.marker6.title = location[2].name
                     self.marker6.map = mapView
+                    self.marker6.icon = GMSMarker.markerImage(with: .purple)
                     
                 }
             }
-            else {
-                // UI ALert
+            if location.count == 0 {
+                print("In de else loop")
+                // UI ALert if no locations are found. 
                 let alertController = UIAlertController(title: "You are to far away from anything in the normal world", message: "You cannot see your friend", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
@@ -93,19 +100,17 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 
     /// Function that performs segue if marker is tapped.
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if marker == marker4 {
+        switch marker {
+        case marker4:
             markerChosen = 4
-            performSegue(withIdentifier: "DetailsSegue", sender: self)
-        }
-        else if marker == marker5 {
+        case marker5:
             markerChosen = 5
-            performSegue(withIdentifier: "DetailsSegue", sender: self)
-        }
-            
-        else if marker == marker6 {
+        case marker6:
             markerChosen = 6
-            performSegue(withIdentifier: "DetailsSegue", sender: self)
+        default:
+            print("default")
         }
+        performSegue(withIdentifier: "DetailsSegue", sender: self)
     }
     
     /// Function that sends values to detailsviewcontroller.

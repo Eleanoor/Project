@@ -36,9 +36,9 @@ struct LocationData {
     enum OpeninghoursKeys: String, CodingKey {
         case openNow = "open_now", weekdayText = "weekday_text"
     }
-    
 }
 
+// Extension of the struct LocationData.
 extension LocationData: Decodable {
     
     init(from decoder: Decoder) throws {
@@ -63,6 +63,7 @@ extension LocationData: Decodable {
     }
 }
 
+// One struct consists of an array of the LocationDatas.
 struct LocationDatas: Decodable {
     let results: [LocationData]
 }

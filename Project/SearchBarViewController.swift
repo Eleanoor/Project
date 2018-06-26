@@ -17,35 +17,28 @@ import GooglePlaces
 
 class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDelegate {
     
-  
+    // MARK: - Variables
+    
     var addressTapped: Int!
     var addressItem: GMSPlace?
     
+    // MARK: - Functions
+
+    /// Function
     override func viewDidLoad() {
         super.viewDidLoad()
     
     }
     
-    
-    
-    // MARK: GOOGLE AUTO COMPLETE DELEGATE
-    
-    ///
+    /// Function if addressbutton is clicked on.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         addressItem = place
-        
         performSegue(withIdentifier: "UnwindSegue", sender: self)
-       // let camera = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 15.0)
-       // self.googleMapsView.camera = camera
-        //self.dismiss(animated: true, completion: nil) // dismiss after select place
-        
     }
     
     /// Funtion is autocomplete doesn't work.
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        
         print("ERROR AUTO COMPLETE \(error)")
-        
     }
     
     /// Function if cancel button is tapped.
@@ -57,8 +50,6 @@ class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDe
     @IBAction func searchButtonTapped(_ sender: Any) {
         let autoCompleteController = GMSAutocompleteViewController()
         autoCompleteController.delegate = self
-        
-        //self.locationManager.startUpdatingLocation()
         self.present(autoCompleteController, animated: true, completion: nil)
     }
     
@@ -77,8 +68,4 @@ class SearchBarViewController: UIViewController, GMSAutocompleteViewControllerDe
             }
         }
     }
-    
-
-    
-    
 }
