@@ -20,3 +20,4 @@ The second challenge was decoding the JSON for the nearby search for the restaur
 The last and hardest challenge was getting a solution for if the middle point was in water instead of land. If the middle is in the water, the nearbysearch function of google places API does not work. If the middle point in the water was in the water but nearby land, the google places api with radius instead of nearbysearch could find restaurants on the land near the water. If the middle point was in the middle of a big ocean, the google places API cannot find a location nearby the middle. In this case an UI Alert pops up which tells you that between the chosen locations, there is no location near your middle point. 
 
 ## Decisions 
+The decisions about the m
