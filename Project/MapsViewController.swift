@@ -87,7 +87,7 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
                     
                 }
             }
-            if location.count == 0 {
+            else if location.count == 0 {
                 print("In de else loop")
                 // UI ALert if no locations are found. 
                 let alertController = UIAlertController(title: "You are to far away from anything in the normal world", message: "You cannot see your friend", preferredStyle: .alert)
@@ -127,8 +127,4 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-
-
 }

@@ -47,10 +47,10 @@ class AddressViewController: UIViewController  {
         case 1:
             addressItem1 = searchBarController.addressItem
             print(addressItem1!.name)
-            address1Button.setTitle(addressItem1!.name, for: .normal)
+            address1Button.setTitle("  " + addressItem1!.name, for: .normal)
         case 2:
             addressItem2 = searchBarController.addressItem
-            address2Button.setTitle(addressItem2!.name, for: .normal)
+            address2Button.setTitle("  " + addressItem2!.name, for: .normal)
         default:
             print("default")
         }
@@ -74,7 +74,7 @@ class AddressViewController: UIViewController  {
     @IBAction func getLocationsButtonTapped(_ sender: Any) {
         
         // UI Alert if address 1 or 2 is not chosen yet.
-        if address1Button.titleLabel!.text == "Address 1" || address2Button.titleLabel!.text == "Address 2" {
+        if address1Button.titleLabel!.text == "  Address 1" || address2Button.titleLabel!.text == "  Address 2" {
             let alertController = UIAlertController(title: "Something went wrong", message: "Fill in both address fields", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                                 alertController.addAction(defaultAction)
@@ -89,7 +89,7 @@ class AddressViewController: UIViewController  {
     @IBAction func LogOutButtonTapped(_ sender: UIBarButtonItem) {
         do {
             try Auth.auth().signOut()
-            performSegue(withIdentifier: "LogOutSegue", sender: self)
+            performSegue(withIdentifier: "UnwindSegue", sender: self)
         } catch {
             print("error")
         }
@@ -102,7 +102,7 @@ class AddressViewController: UIViewController  {
             mapsController.addressItem1 = addressItem1
             mapsController.addressItem2 = addressItem2
         }
-        if segue.identifier == "AddressSegue" {
+        else if segue.identifier == "AddressSegue" {
             let searchBarController = segue.destination as! SearchBarViewController
             print(addressTapped)
             searchBarController.addressTapped = addressTapped

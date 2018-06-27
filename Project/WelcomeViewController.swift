@@ -79,6 +79,11 @@ class WelcomeViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToWelcomeViewController(segue: UIStoryboardSegue){
+        
+    }
+    
+    
     /// Function
     override func viewDidLoad() {
         super.viewDidLoad()

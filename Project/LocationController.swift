@@ -43,7 +43,6 @@ class LocationController {
         
         if inwater {
             url = URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lng)&radius=50000&type=restaurant&type=bar&key=AIzaSyAfbusZOf0qLnSdPBlMQXVwG4PStC29JrQ")!
-            
         }
         
         let request = URLRequest(url: url)
@@ -63,8 +62,4 @@ class LocationController {
         }
         task.resume()
     }
-    
-
-    
-    
 }
