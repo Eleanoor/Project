@@ -1,6 +1,6 @@
 
 # README
-Minor Programming, Final Project  
+Minor Programming, Final Project: Meet me in the middle!  
 Elanoor Polder, 10979301
 
 ## Purpose
