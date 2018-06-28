@@ -8,6 +8,7 @@ The application is made for two people who want to meet. The problem is that the
 
 ## Technical design
 This pharagraph contains the functionality implemented in my code. Starting with a high level overview and followed by details. 
+![Design](doc/Design.png)
 
 ### High Level overview
 The app starts with a WelcomeViewController, here you can create an account or log in to your already excisting account. The users profiles are connected with Firebase. Hereafter, the user goes to the AddressViewController. This screen contains three buttons: Address1, Address2 and Get Locations. By clicking on the Address1 or Address2 button, the user will go to the SearchBarViewController. By clicking on the searchbutton in the navigation bar the user gets the option to search for addresses, under the searchbar a tableview with suggestions will be given every time you change a letter (autocomplete). After an address is chosen, the text of the button changes to the chosen address. After both addresses are filled in, you can choose the get locations button. This will give you the map with 5 markers: 3 red markers (two for the the addresses en one for the middlepoint of the addresses) and 3 purple markers (for the top three restaurants in near the middlepoint). By tapping on the markers an infowindow will pop upp with information about the locations. When tapping on the infowindow of one of the purple markers the user will be send to the DetailsViewController. 
