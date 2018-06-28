@@ -16,23 +16,29 @@ The app starts with a WelcomeViewController, here you can create an account or l
 ### Details
 It starts in the WelcomeViewController. The two main functions in this file are createAccountButtonTapped and LogInButtonTapped. With the Auth.auth().CreateUser and Auth.auth().SignIn functions a new account will be created or an already excisting account will be logged in. If an error occurs, an UI Alert will pop up with a message that contains the error.  
 
-After a succesfull login or creating account the user will be lead to the AddressViewController. The following functions are used. 
-@IBAction func unwindToAdressViewController: this function a function that will logg out the current logged in user, and will send the user to the WelcomeViewController.   
-@IBAction func address1ButtonTapped: This function will give the variable AddressTapped value of 1 and performs a segueway to searchBarViewController.   
-@IBAction func address2ButtonTapped: This function will give the variable AddressTapped value of 2 and performs a segueway to searchBarViewController.   
-@IBAction func getLocationsButtonTapped: This button will perform the segueway to the MapsViewController. This will only happen if both Addresses are filled in, if not an UI Alert will pop up that tells the user to fill in both addresses.   
-@IBAction func LogOutButtonTapped: This function will give the variable AddressTapped value of 1 and performs a segueway to searchBarViewController. 
-@IBAction func unwindToAdressViewController:  Function for unwind Segue from SearchBarViewController, it changes the text of the addressbuttons to the address chosen in SearchBarViewController, depending on which button is tapped.
-override func prepare: This sends the values of addressItem1 and addresItem2 (more about these classes later) to MapsViewController and the value of addressTapped to SearchBarViewController.     
+After a succesfull login or creating account the user will be lead to the AddressViewController. The following functions are used.   
+@IBAction func unwindToAdressViewController: this function a function that will logg out the current logged in user, and will send the user to the WelcomeViewController.     
+@IBAction func address1ButtonTapped: This function will give the variable AddressTapped value of 1 and performs a segueway to searchBarViewController.     
+@IBAction func address2ButtonTapped: This function will give the variable AddressTapped value of 2 and performs a segueway to searchBarViewController.     
+@IBAction func getLocationsButtonTapped: This button will perform the segueway to the MapsViewController. This will only happen if both Addresses are filled in, if not an UI Alert will pop up that tells the user to fill in both addresses.     
+@IBAction func LogOutButtonTapped: This function will give the variable AddressTapped value of 1 and performs a segueway to searchBarViewController.   
+@IBAction func unwindToAdressViewController:  Function for unwind Segue from SearchBarViewController, it changes the text of the addressbuttons to the address chosen in SearchBarViewController, depending on which button is tapped.  
+override func prepare: This sends the values of addressItem1 and addresItem2 (more about these classes later) to MapsViewController and the value of addressTapped to SearchBarViewController.       
+
+After this ViewController we are going to need the API's we used, so I will first introduce you to the following files: AppDelegate.swift, LocationController.swift and LocationData.swift. 
 
 So after one of the Address buttons is tapped, the user will go to the SearchBarViewController, this contains the following functions:
-@IBAction func searchButtonTapped: This function is called in the viewDidLoad, this functions makes sure that the user can put in an address and a list of suggestions will pop up under the searchbar, this is GMSAutocomplete.
+@IBAction func searchButtonTapped: This function is called in the viewDidLoad, this functions makes sure that the user can put in an address and a list of suggestions will pop up under the searchbar, this is GMSAutocomplete.  
 func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace): If one of the suggestions is tapped on the GMSPlace that belongs to that address is saved as addressItem. After that, the unwind segueway to the AddressViewController. 
-func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error): Function that prints an error if the GMSAutocomplete does not work.  
-func wasCancelled(_ viewController: GMSAutocompleteViewController): Function that cancels a search.
-override func prepare: this function sends the addressItem to the AddressViewController, depending on which address button is tapped in the AddressViewController, this depends on the value of addressTapped. 
+func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error): Function that prints an error if the GMSAutocomplete does not work.    
+func wasCancelled(_ viewController: GMSAutocompleteViewController): Function that cancels a search.  
+override func prepare: this function sends the addressItem to the AddressViewController, depending on which address button is tapped in the AddressViewController, this depends on the value of addressTapped.   
 
-
+After a location in chosen in the SearchBarViewController the user will always go back (unwind) to the AddressViewController. After both adrress buttons are filled with addresses, the get location button will work without an UI Alert. In this case, the user goes to the MapsViewController. The MapsViewController contains the following functions:
+override func viewDidLoad() 
+LocationController.shared.fetchRestaurants(lat:latMiddle, lng:lonMiddle)
+func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)
+override func prepare
 
 
 
