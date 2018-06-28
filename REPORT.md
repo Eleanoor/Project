@@ -14,6 +14,18 @@ This pharagraph contains the functionality implemented in my code. Starting with
 The app starts with a WelcomeViewController, here you can create an account or log in to your already excisting account. The users profiles are connected with Firebase. Hereafter, the user goes to the AddressViewController. This screen contains three buttons: Address1, Address2 and Get Locations. By clicking on the Address1 or Address2 button, the user will go to the SearchBarViewController. By clicking on the searchbutton in the navigation bar the user gets the option to search for addresses, under the searchbar a tableview with suggestions will be given every time you change a letter (autocomplete). After an address is chosen, the text of the button changes to the chosen address. After both addresses are filled in, you can choose the get locations button. This will give you the map with 5 markers: 3 red markers (two for the the addresses en one for the middlepoint of the addresses) and 3 purple markers (for the top three restaurants in near the middlepoint). By tapping on the markers an infowindow will pop upp with information about the locations. When tapping on the infowindow of one of the purple markers the user will be send to the DetailsViewController. 
 
 ### Details
+It starts in the WelcomeViewController. The two main functions in this file are createAccountButtonTapped and LogInButtonTapped. With the Auth.auth().CreateUser and Auth.auth().SignIn functions a new account will be created or an already excisting account will be logged in. If an error occurs, an UI Alert will pop up with a message that contains the error.  
+
+After a succesfull login or creating account the user will be lead to the AddressViewController. The following functions are used. 
+@IBAction func unwindToAdressViewController: this function a function that will logg out the current logged in user, and will send the user to the WelcomeViewController. 
+@IBAction func address1ButtonTapped:  
+@IBAction func address2ButtonTapped: This function will give the variable AddressTapped value of 2 and performs a segueway to searchBarViewController. 
+@IBAction func getLocationsButtonTapped: This button will perform the segueway to the MapsViewController. This will only happen if both Addresses are filled in, if not an UI Alert will pop up that tells the user to fill in both addresses. 
+@IBAction func LogOutButtonTapped: This function will give the variable AddressTapped value of 1 and performs a segueway to searchBarViewController.
+override func prepare: This sends the values of addressItem1 and addresItem2 (more about these classes later) to MapsViewController and the value of addressTapped to SearchBarViewController.   
+
+
+
 
 ## Challenges
 The first challenge I had during this process was implementing the autocomplete of the adresses. I made a new ViewController for it because it would have been a better design for the application. After importing the google places API and doing some research about the autocomplete function.  
