@@ -5,6 +5,7 @@
 //  Created by Eleanoor Polder on 05-06-18.
 //  Copyright © 2018 Eleanoor Polder. All rights reserved.
 //
+//  This file contains the struct of the data of the nearby restaurants and bars.
 
 import Foundation
 
