@@ -26,7 +26,7 @@ LocationController.swift contains two very important functions both functions wo
 LocationController.swift obtain the data of the locations around the middle point and put it in the struct LocationData, this struct is made in the LocationData.swift. LocationData contains the latitude, longitude, name, if its open, rating and vicinity of the loacation. The complicated JSON with multiple nested objects needs to be decoded correctly, for this I used CodinKeys and Conainers and NestedContainers. Besides the struct LocationDatas, in the same file, is an array of the LocationData. 
 It starts in the WelcomeViewController. The two main functions in this file are createAccountButtonTapped and LogInButtonTapped. With the Auth.auth().CreateUser and Auth.auth().SignIn functions a new account will be created or an already excisting account will be logged in. If an error occurs, an UI Alert will pop up with a message that contains the error. 
 
-So now we go through the screens with their files. The user starts at the WelcomeViewController. 
+So now we go through the screens with their files. The user starts at the WelcomeViewController. If the user already has an account it is possible to login in this screen. If not, the user can create an account. This is done by the functions @IBAction func createAccountButtonTapped and @IBAction func loginButtonTapped. In these functions the following Firebasefunctions are called: Auht.auth().signIn and Auht.auth().createAccount. If an internal error occurs, an UI Altert will pop up with a description of the error. 
 
 After a succesfull login or creating account the user will be lead to the AddressViewController. The following functions are used.   
 @IBAction func unwindToAdressViewController: this function a function that will logg out the current logged in user, and will send the user to the WelcomeViewController.     
@@ -37,7 +37,6 @@ After a succesfull login or creating account the user will be lead to the Addres
 @IBAction func unwindToAdressViewController:  Function for unwind Segue from SearchBarViewController, it changes the text of the addressbuttons to the address chosen in SearchBarViewController, depending on which button is tapped.  
 override func prepare: This sends the values of addressItem1 and addresItem2 (more about these classes later) to MapsViewController and the value of addressTapped to SearchBarViewController.       
 
-
 So after one of the Address buttons is tapped, the user will go to the SearchBarViewController, this contains the following functions:
 @IBAction func searchButtonTapped: This function is called in the viewDidLoad, this functions makes sure that the user can put in an address and a list of suggestions will pop up under the searchbar, this is GMSAutocomplete.  
 func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace): If one of the suggestions is tapped on the GMSPlace that belongs to that address is saved as addressItem. After that, the unwind segueway to the AddressViewController. 
@@ -46,13 +45,9 @@ func wasCancelled(_ viewController: GMSAutocompleteViewController): Function tha
 override func prepare: this function sends the addressItem to the AddressViewController, depending on which address button is tapped in the AddressViewController, this depends on the value of addressTapped.   
 
 After a location in chosen in the SearchBarViewController the user will always go back (unwind) to the AddressViewController. After both adrress buttons are filled with addresses, the get location button will work without an UI Alert. In this case, the user goes to the MapsViewController. The MapsViewController contains the following functions:
-override func viewDidLoad() 
-LocationController.shared.fetchRestaurants(lat:latMiddle, lng:lonMiddle)
-func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker)
-override func prepare
+override func viewDidLoad(): the functionalities in this functions are very important for this screen. The background of the screen is the map, for this I used GMSCameraPosition and GMSMapView.map with the middlepoint as the center. In here are the markers of the two addresses and the middlepoint places in red. The locations of the nearby restaurants/bars are called with LocationController.shared.fetchRestaurants(lat:latMiddle, lng:lonMiddle), from the LocationController. The first three results of this struct will be marked on the map in purple. For the markers I used GMSMarker(). All markers have a infowindow. If one of the purple markers' infowindow is tapped, the number of the marker tapped will be remembered and the segueway to the DetailsViewController is performed, func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) is responsible for this action. So the values of the tapped marker needs will be send to the DetailsViewController, this is done in the override func prepare.
 
-
-
+So after the infowindow of a purple marker is tapped, the user will be send to the DetailsViewController. In this screen the details about the purple marker tapped on will be viewed. So in the viewDidLoad the function  LocationController.shared.fetchRestaurants(lat:latMiddle!, lng:lonMiddle!) will be called again. And the results of the chosenmarker will be viewed in the screen. The index of the chosenmarker will be the value of marker Chosen - 4. 
 
 
 ## Challenges
