@@ -5,6 +5,7 @@
 //  Created by Eleanoor Polder on 05-06-18.
 //  Copyright © 2018 Eleanoor Polder. All rights reserved.
 //
+//  This class represents the view and actions on the welcome screen.
 
 import UIKit
 import Firebase
@@ -79,19 +80,8 @@ class WelcomeViewController: UIViewController {
         }
     }
     
+    /// Function for unwind segue after tapped on the logout button on the AddressViewController.
     @IBAction func unwindToWelcomeViewController(segue: UIStoryboardSegue){
         
     }
-    
-    
-    /// Function
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    /// Function
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }

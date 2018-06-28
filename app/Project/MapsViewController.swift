@@ -5,6 +5,7 @@
 //  Created by Eleanoor Polder on 05-06-18.
 //  Copyright © 2018 Eleanoor Polder. All rights reserved.
 //
+//  This class represents the view and actions on the maps screen.
 
 import UIKit
 import GoogleMaps
@@ -22,18 +23,17 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
     let marker4 = GMSMarker()
     let marker5 = GMSMarker()
     let marker6 = GMSMarker()
-    var markerChosen = 0
-    
-    // Initialize lon and lat for the middle.
     var latMiddle = Double()
     var lonMiddle = Double()
+    var markerChosen = 0
     
     // MARK: - Functions
     
-    /// Function for loading the view.
+    /// Function that loads all the features on the screen.
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Calculate middle point.
         latMiddle = (addressItem1!.coordinate.latitude + addressItem2!.coordinate.latitude)/2
         lonMiddle =  (addressItem1!.coordinate.longitude + addressItem2!.coordinate.longitude)/2
 
@@ -63,34 +63,35 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
         
         // Add 3 markers for the restaurants/bars.
         LocationController.shared.fetchRestaurants(lat:latMiddle, lng:lonMiddle) { (location) in
-            guard let location = location else {return}
-            if location.count != 0 {
-                DispatchQueue.main.async{
-                    print("In de if loop")
-                    // Add marker 4.
-                    self.marker4.position = CLLocationCoordinate2D(latitude: location[0].lat!, longitude: location[0].lng!)
-                    self.marker4.title = location[0].name
-                    self.marker4.map = mapView
-                    self.marker4.icon = GMSMarker.markerImage(with: .purple)
-                    
-                    // Add marker 5.
-                    self.marker5.position = CLLocationCoordinate2D(latitude: location[1].lat!, longitude: location[1].lng!)
-                    self.marker5.title = location[1].name
-                    self.marker5.map = mapView
-                    self.marker5.icon = GMSMarker.markerImage(with: .purple)
-                    
-                    // Add marker 6.
-                    self.marker6.position = CLLocationCoordinate2D(latitude: location[2].lat!, longitude: location[2].lng!)
-                    self.marker6.title = location[2].name
-                    self.marker6.map = mapView
-                    self.marker6.icon = GMSMarker.markerImage(with: .purple)
-                    
+            if let location = location {
+                if location.count != 0 {
+                    DispatchQueue.main.async{
+                       
+                        // Add marker 4.
+                        self.marker4.position = CLLocationCoordinate2D(latitude: location[0].lat!, longitude: location[0].lng!)
+                        self.marker4.title = location[0].name
+                        self.marker4.map = mapView
+                        self.marker4.icon = GMSMarker.markerImage(with: .purple)
+                        
+                        // Add marker 5.
+                        self.marker5.position = CLLocationCoordinate2D(latitude: location[1].lat!, longitude: location[1].lng!)
+                        self.marker5.title = location[1].name
+                        self.marker5.map = mapView
+                        self.marker5.icon = GMSMarker.markerImage(with: .purple)
+                        
+                        // Add marker 6.
+                        self.marker6.position = CLLocationCoordinate2D(latitude: location[2].lat!, longitude: location[2].lng!)
+                        self.marker6.title = location[2].name
+                        self.marker6.map = mapView
+                        self.marker6.icon = GMSMarker.markerImage(with: .purple)
+                        
+                    }
                 }
             }
-            else if location.count == 0 {
-                print("In de else loop")
+            else {
+                
                 // UI ALert if no locations are found. 
-                let alertController = UIAlertController(title: "You are to far away from anything in the normal world", message: "You cannot see your friend", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "You are to far away from anything in the normal world", message: "I'm sorry, but you cannot see your friend.", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -100,31 +101,30 @@ class MapsViewController: UIViewController, GMSMapViewDelegate {
 
     /// Function that performs segue if marker is tapped.
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
         switch marker {
         case marker4:
             markerChosen = 4
+            performSegue(withIdentifier: "DetailsSegue", sender: self)
         case marker5:
             markerChosen = 5
+            performSegue(withIdentifier: "DetailsSegue", sender: self)
         case marker6:
             markerChosen = 6
+            performSegue(withIdentifier: "DetailsSegue", sender: self)
         default:
             print("default")
         }
-        performSegue(withIdentifier: "DetailsSegue", sender: self)
     }
     
     /// Function that sends values to detailsviewcontroller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "DetailsSegue" {
             let detailsController = segue.destination as! DetailsViewController
             detailsController.latMiddle = latMiddle
             detailsController.lonMiddle = lonMiddle
             detailsController.markerChosen = markerChosen
         }
-    }
-   
-    /// Function
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
